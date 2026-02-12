@@ -24,6 +24,8 @@ public class ManageCategoryPage {
 	WebElement addfile;
 	@FindBy(xpath = "//button[text()='Save']")
 	WebElement Save;
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']//child::h5")
+	WebElement alertmsg;
 
 	public ManageCategoryPage(WebDriver driver) {
 		this.driver = driver;
@@ -38,12 +40,6 @@ public class ManageCategoryPage {
 		category_new.click();
 	}
 
-	public void adddata() {
-		category_name.sendKeys("Hello");
-		discount.click();
-
-	}
-
 	public void addfile() {
 		FileUploadUtilities fileupload = new FileUploadUtilities();
 		fileupload.fileUploadUsingSendkeys(addfile, Contants.IMAGE);
@@ -51,5 +47,16 @@ public class ManageCategoryPage {
 
 	public void savedata() {
 		Save.click();
+	}
+
+	public boolean isAlertDisplayed() {
+		return alertmsg.isDisplayed();
+	}
+
+	public void adddata(String categoryName) {
+		category_name.click();
+		category_name.sendKeys(categoryName);
+		discount.click();
+
 	}
 }

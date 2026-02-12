@@ -21,6 +21,8 @@ public class ManageFooterPage {
 	WebElement phonenum;
 	@FindBy(xpath = "//button[@name='Update']")
 	WebElement updatebttn;
+	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']//child::h5")
+	WebElement alertmsge;
 
 	public ManageFooterPage(WebDriver driver) {
 		this.driver = driver;
@@ -36,13 +38,13 @@ public class ManageFooterPage {
 		editicon.click();
 	}
 
-	public void editdatafields() {
+	public void editdatafields(String address1, String emailid, String phonenumber) {
 		address.clear();
-		address.sendKeys("Tharayil");
+		address.sendKeys(address1);
 		email.clear();
-		email.sendKeys("arsha@gmail.com");
+		email.sendKeys(emailid);
 		phonenum.clear();
-		phonenum.sendKeys("9775590000");
+		phonenum.sendKeys(phonenumber);
 
 	}
 
@@ -50,4 +52,7 @@ public class ManageFooterPage {
 		updatebttn.click();
 	}
 
+	public boolean isFooterUpdatedSuccessfully() {
+		return alertmsge.isDisplayed();
+	}
 }

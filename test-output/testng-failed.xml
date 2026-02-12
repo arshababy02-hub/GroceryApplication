@@ -4,13 +4,6 @@
   <test thread-count="5" name="Test(failed)">
     <parameter name="browser" value="chrome"/>
     <classes>
-      <class name="testscript.ManageContactTest">
-        <methods>
-          <include name="browserInitialization"/>
-          <include name="verifyusercanupdatecontactinformation"/>
-          <include name="close"/>
-        </methods>
-      </class> <!-- testscript.ManageContactTest -->
       <class name="testscript.ManageCategoryTest">
         <methods>
           <include name="verifyuserabletomanagecategorysuccessfully"/>
@@ -18,6 +11,44 @@
           <include name="close"/>
         </methods>
       </class> <!-- testscript.ManageCategoryTest -->
+      <class name="testscript.ManageNewsTestclass">
+        <methods>
+          <include name="verifuserabletopublishmessage"/>
+          <include name="browserInitialization"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- testscript.ManageNewsTestclass -->
+      <class name="testscript.ManageFooterTest">
+        <methods>
+          <include name="browserInitialization"/>
+          <include name="verifyuserabletomanagefootertext"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- testscript.ManageFooterTest -->
+      <class name="testscript.ManageContactTest">
+        <methods>
+          <include name="browserInitialization"/>
+          <include name="verifyusercanupdatecontactinformation"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- testscript.ManageContactTest -->
+      <class name="testscript.LoginTestclass">
+        <methods>
+          <include name="verifyuserabletoenterusinginvalidcredentials"/>
+          <include name="verifyuserabletoenterusingvalidusernameandinvalidpassword"/>
+          <include name="browserInitialization"/>
+          <include name="verifyuserabletoenterusinginvalidusernameandvalidpassword"/>
+          <include name="verifywhetheruserisabletoenterusingvalidcredentials"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- testscript.LoginTestclass -->
+      <class name="testscript.LogOutTest">
+        <methods>
+          <include name="browserInitialization"/>
+          <include name="verifyUserIsAbleToLogout"/>
+          <include name="close"/>
+        </methods>
+      </class> <!-- testscript.LogOutTest -->
     </classes>
   </test> <!-- Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->

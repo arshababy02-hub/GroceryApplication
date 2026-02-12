@@ -37,8 +37,8 @@ public class ManageNewsPage {
 		New.click();
 	}
 
-	public void entermessage() {
-		message.sendKeys("Welcome To Obsqura");
+	public void entermessage(String msg) {
+		message.sendKeys(msg);
 	}
 
 	public void save() {

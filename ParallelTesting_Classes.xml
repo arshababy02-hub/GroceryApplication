@@ -21,6 +21,10 @@
 			<class name="testscript.ManageFooterTest">
 
 			</class>
+
+			<class name="testscript.LogOutTest">
+
+			</class>
 		</classes>
 	</test> <!-- Test -->
 

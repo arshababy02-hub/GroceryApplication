@@ -42,6 +42,13 @@
 
 				</methods>
 			</class>
+
+			<class name="testscript.LogOutTest">
+				<methods>
+					<include name="verifyUserIsAbleToLogout"></include>
+
+				</methods>
+			</class>
 		</classes>
 	</test> <!--
 	Test -->

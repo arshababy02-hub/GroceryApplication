@@ -17,27 +17,35 @@ import org.testng.annotations.Parameters;
 import constant.Contants;
 import utilities.WaitUtility;
 
+/**
+ * Base class is used to perform common setup and teardown operations like
+ * browser initialization, loading configuration, and closing browser. All test
+ * classes will extend this Base class.
+ */
 public class Base {
 
-	public WebDriver driver;
+	public WebDriver driver;// WebDriver instance used across test classes
 	public FileInputStream file;
-	public Properties property;
+	public Properties property; // Properties object to read values from config file
 
+	/**
+	 * This method initializes the browser before each test method. Browser name is
+	 * passed from testng.xml using @Parameters.
+	 */
 	@BeforeMethod(alwaysRun = true)
 	@Parameters("browser")
 	public void browserInitialization(String browser) throws Exception {
 		try {
-			property=new Properties();
-			file=new FileInputStream(Contants.CONFIGFILE);
+			property = new Properties();// Create Properties object
+			file = new FileInputStream(Contants.CONFIGFILE);// Load configuration file using file path from Constants
+															// class
 			property.load(file);
-			
-		}
-		catch(Exception e) {
+
+		} catch (Exception e) {
 			System.out.println(e);
-			
-			
+
 		}
-		
+		// Launch browser based on the parameter value
 		if (browser.equalsIgnoreCase("chrome")) {
 			driver = new ChromeDriver();
 		} else if (browser.equalsIgnoreCase("Firefox")) {
@@ -45,14 +53,18 @@ public class Base {
 		} else if (browser.equalsIgnoreCase("Edge")) {
 			driver = new EdgeDriver();
 		} else
-			throw new Exception("Invalid");
+			throw new Exception("Invalid"); // Throw exception if invalid browser name is provided
 
-		//driver.get("https://groceryapp.uniqassosiates.com/admin/login");
+		// driver.get("https://groceryapp.uniqassosiates.com/admin/login");
 		driver.get(property.getProperty("url"));
-		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(WaitUtility.IMPLICITWAIT));
-		driver.manage().window().maximize();
+		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(WaitUtility.IMPLICITWAIT));// Apply implicit wait
+																								// using utility class
+		driver.manage().window().maximize(); // Maximize the browser window
 	}
 
+	/**
+	 * This method closes the browser after each test method execution.
+	 */
 	@AfterMethod(alwaysRun = true)
 	public void close() {
 		driver.quit();

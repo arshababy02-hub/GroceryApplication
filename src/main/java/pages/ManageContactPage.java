@@ -33,9 +33,10 @@ public class ManageContactPage {
 		editicon.click();
 	}
 
-	public void enterdata() {
+	public void enterdata(String Phonenumber) {
+		phone.click();
 		phone.clear();
-		phone.sendKeys("9497026565");
+		phone.sendKeys(Phonenumber);
 
 	}
 
@@ -43,8 +44,9 @@ public class ManageContactPage {
 		update.click();
 	}
 
-	/*
-	 * public boolean isAlertDisplayed() { return alertmsge.isDisplayed(); }
-	 */
+	public boolean isAlertDisplayed() {
+
+		return alertmsge.isDisplayed();
+	}
 
 }

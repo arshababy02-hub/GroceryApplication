@@ -16,8 +16,8 @@
 					<include
 						name="verifyuserabletoenterusinginvalidusernameandvalidpassword"></include>
 				</methods>
-			 </class>
-			<!--<class name="testscript.ManageNewsTestclass">
+			</class>
+			<class name="testscript.ManageNewsTestclass">
 				<methods>
 					<include name="verifuserabletopublishmessage"></include>
 					<include name="verifylogoutbutton"></include>
@@ -40,9 +40,15 @@
 				<methods>
 					<include name="verifyuserabletomanagefootertext"></include>
 
+
 				</methods>
-				
-			</class> -->
+			</class>
+			<class name="testscript.LogOutTest">
+				<methods>
+					<include name="verifyUserIsAbleToLogout"></include>
+
+				</methods>
+			</class>
 		</classes>
 	</test> <!--
 	Test -->
