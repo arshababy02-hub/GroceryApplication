@@ -6,10 +6,14 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import constant.Contants;
+import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
 public class LoginTestclass extends Base {
+	public HomePage home;
+
 	/**
 	 * Test Case 1: Verify that user is able to login using valid username and valid
 	 * password. Test data is fetched from Excel sheet.
@@ -22,11 +26,11 @@ public class LoginTestclass extends Base {
 		String password = ExcelUtility.getStringData(1, 1, "LoginPage");
 		// Create object of LoginPage
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterusername(username);// Perform login actions
-		loginpage.enterpassword(password);
-		loginpage.clicksignin();
+		loginpage.enterusername(username).enterpassword(password);// Perform login actions
+		// loginpage.enterpassword(password);
+		home = loginpage.clicksignin();
 		boolean home = loginpage.isHomePageDisplayed();// Verify whether home page is displayed
-		Assert.assertTrue(home, "home page is not loaded with valid credentials");
+		Assert.assertTrue(home, Contants.LOGIN_VALID_CREDENTIALS);
 
 	}
 
@@ -41,11 +45,11 @@ public class LoginTestclass extends Base {
 		String password = ExcelUtility.getStringData(2, 1, "LoginPage");
 
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterusername(username);
-		loginpage.enterpassword(password);
+		loginpage.enterusername(username).enterpassword(password);
+		// loginpage.enterpassword(password);
 		loginpage.clicksignin();
-		boolean home = loginpage.isHomePageDisplayed();
-		Assert.assertTrue(home, "home page is not loaded with valid credentials");
+		boolean alert = loginpage.isAlertDisplayed();
+		Assert.assertTrue(alert, Contants.LOGIN_INVALID_CREDENTIALS);
 
 	}
 
@@ -58,11 +62,11 @@ public class LoginTestclass extends Base {
 		String password = ExcelUtility.getStringData(3, 1, "LoginPage");
 
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterusername(username);
-		loginpage.enterpassword(password);
+		loginpage.enterusername(username).enterpassword(password);
+		// loginpage.enterpassword(password);
 		loginpage.clicksignin();
-		boolean home = loginpage.isHomePageDisplayed();
-		Assert.assertTrue(home, "home page is not loaded with valid credentials");
+		boolean alert = loginpage.isAlertDisplayed();
+		Assert.assertTrue(alert, Contants.LOGIN_INVALID_CREDENTIALS);
 	}
 
 	/**
@@ -77,11 +81,11 @@ public class LoginTestclass extends Base {
 		// String password = ExcelUtility.getStringData(4, 1, "LoginPage");
 
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterusername(username);
-		loginpage.enterpassword(password);
+		loginpage.enterusername(username).enterpassword(password);
+		// loginpage.enterpassword(password);
 		loginpage.clicksignin();
-		boolean home = loginpage.isHomePageDisplayed();
-		Assert.assertTrue(home, "home page is not loaded with valid credentials");
+		boolean alert = loginpage.isAlertDisplayed();
+		Assert.assertTrue(alert, Contants.LOGIN_INVALID_CREDENTIALS);
 	}
 
 	/**

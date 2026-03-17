@@ -5,6 +5,7 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
+import pages.HomePage;
 import pages.LoginPage;
 import pages.ManageNewsPage;
 import utilities.ExcelUtility;
@@ -15,6 +16,9 @@ import utilities.ExcelUtility;
  * setup and teardown.
  */
 public class ManageNewsTestclass extends Base {
+	public HomePage home;
+	public ManageNewsPage manage;
+
 	/**
 	 * Test Case 1: Verify that user is able to publish a news message successfully.
 	 */
@@ -26,16 +30,16 @@ public class ManageNewsTestclass extends Base {
 		String password = ExcelUtility.getStringData(1, 1, "LoginPage");
 		// Login to the application
 		LoginPage loginpage = new LoginPage(driver);
-		loginpage.enterusername(username);
-		loginpage.enterpassword(password);
-		loginpage.clicksignin();
-		String msg=ExcelUtility.getStringData(3, 0, "ManageFooter");
+		loginpage.enterusername(username).enterpassword(password);
+		// loginpage.enterpassword(password);
+		home = loginpage.clicksignin();
+		String msg = ExcelUtility.getStringData(3, 0, "ManageFooter");
 		// Navigate to Manage News page and publish message
-		ManageNewsPage manage = new ManageNewsPage(driver);
-		manage.clickonmoreinfo();
-		manage.clickonnews();
-		manage.entermessage(msg);
-		manage.save();
+		// ManageNewsPage manage = new ManageNewsPage(driver);
+		manage = home.clickonmoreinfo();
+		manage.clickonnews().entermessage(msg).save();
+		// manage.entermessage(msg);
+		// manage.save();
 		boolean msgalert = manage.isAlertmessageDisplayed();
 		Assert.assertTrue(msgalert);
 	}

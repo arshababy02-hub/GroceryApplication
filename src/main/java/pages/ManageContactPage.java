@@ -1,20 +1,29 @@
 package pages;
 
+import java.time.Duration;
+
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import utilities.PageUtility;
 
 public class ManageContactPage {
 
 	public WebDriver driver;
 
-	@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-contact'][normalize-space()='More info']")
-	WebElement contactinfo;
+	//@FindBy(xpath = "//a[@href='https://groceryapp.uniqassosiates.com/admin/list-contact'][normalize-space()='More info']")
+	//WebElement contactinfo;
 	@FindBy(xpath = "//i[@class='fas fa-edit']")
 	WebElement editicon;
 	@FindBy(xpath = "//input[@name='phone']")
 	WebElement phone;
+	@FindBy(xpath="//input[@name='email']")
+	WebElement newemail;
 	@FindBy(xpath = "//button[@name='Update']")
 	WebElement update;
 	@FindBy(xpath = "//div[@class='alert alert-success alert-dismissible']//child::h5")
@@ -25,23 +34,34 @@ public class ManageContactPage {
 		PageFactory.initElements(driver, this);
 	}
 
-	public void clickonmanagecontact() {
+	/*public void clickonmanagecontact() {
 		contactinfo.click();
 	}
-
-	public void clickonedit() {
+*/
+	public ManageContactPage clickonedit() {
 		editicon.click();
+		return this;
 	}
 
-	public void enterdata(String Phonenumber) {
-		phone.click();
+	public ManageContactPage enterdata(String Phonenumber) {
+		
 		phone.clear();
 		phone.sendKeys(Phonenumber);
+		return this;
 
 	}
-
-	public void updatedata() {
-		update.click();
+  public ManageContactPage enterEmail(String email) {
+	  newemail.clear();
+	  newemail.sendKeys(email);
+	  return this;
+  }
+	public ManageContactPage updatedata() {
+		 
+		PageUtility click = new PageUtility();
+		click.click(driver, update);
+		return null;
+		   
+		
 	}
 
 	public boolean isAlertDisplayed() {

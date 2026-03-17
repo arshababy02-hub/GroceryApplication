@@ -11,8 +11,8 @@ public class AdminUsersPage {
 
 	public WebDriver driver;// WebDriver reference
 
-	@FindBy(xpath = "//div[@class='small-box bg-info']//child::a[contains(@href,'admin/list-admin')]")
-	WebElement adminmoreinfo;
+	//@FindBy(xpath = "//div[@class='small-box bg-info']//child::a[contains(@href,'admin/list-admin')]")
+	//WebElement adminmoreinfo;
 	@FindBy(xpath = "//a[@onclick='click_button(1)']")
 	WebElement admin_new;
 	@FindBy(xpath = "//input[@id='username']")
@@ -31,29 +31,33 @@ public class AdminUsersPage {
 		PageFactory.initElements(driver, this);
 	}
 	// Click on Admin Users "More Info" link
-	public void clickonadminusers() {
+	/*public void clickonadminusers() {
 		adminmoreinfo.click();
-	}
+	}*/
 	// Click on New button to add admin user
-	public void clickonNew() {
+	public AdminUsersPage clickonNew() {
 		admin_new.click();
+		return this;
 	}
 	 // Enter username and password for new admin user
-	public void enterdata() {
-		admin_uname.sendKeys("users");
-		admin_passwd.sendKeys("users");
+	public AdminUsersPage enterdata() {
+		admin_uname.sendKeys("Arsha23");
+		admin_passwd.sendKeys("arsha");
+		return this;
 
 	}
 	// Select user type from dropdown
-	public void performdropdown() {
+	public AdminUsersPage performdropdown() {
 		PageUtility pageutility = new PageUtility();
 		pageutility.dropdownselectByVisisbleText(dropdwn_type, "Admin");
+		return this;
 
 	}
 	 // Click on Save / Create button
-	public void savedata() {
+	public AdminUsersPage savedata() {
 
 		admin_save.click();
+		return this;
 	}
 	// Validation: Check if success alert is displayed
 	public boolean isAlertDisplayed() {

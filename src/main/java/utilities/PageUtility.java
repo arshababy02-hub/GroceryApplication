@@ -1,5 +1,6 @@
 package utilities;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -41,9 +42,23 @@ public class PageUtility {
 		Actions a = new Actions(driver);
 		a.doubleClick(element).perform();
 	}
+	public void scroll(WebDriver driver) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("window.scrollBy(0,300)", "");
+	}
+	public void click(WebDriver driver, WebElement element) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].click();", element);
+
+	}
+public void sendKeys(WebDriver driver, WebElement element, String stringvalue) {
+		JavascriptExecutor js = (JavascriptExecutor) driver;
+		js.executeScript("arguments[0].value='stringvalue';", element);
+
+	}
 
 	public void javaScriptExecutorDisplay() {
-
+		
 	}
 
 	public void javaScriptExecutorScroll() {

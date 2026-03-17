@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Multi Browser Test" parallel="tests">
-	<test thread-count="5" name="Test">
-		<parameter name="browser" value="chrome" />
+<suite name="MultiBrowserTesting" parallel="tests">
+	<parameter name="browser" value="chrome" />
+	<test thread-count="5" name="Test1">
+
 
 		<classes>
-
 			<class name="testscript.LoginTestclass">
 				<methods>
 					<include
@@ -17,10 +17,23 @@
 						name="verifyuserabletoenterusinginvalidusernameandvalidpassword"></include>
 				</methods>
 			</class>
+			<class name="testscript.AdnimUsersTest">
+				<methods>
+					<include name="verifyUserAbleToManageAdminUserPage"></include>
+
+				</methods>
+			</class>
 			<class name="testscript.ManageNewsTestclass">
 				<methods>
 					<include name="verifuserabletopublishmessage"></include>
 					<include name="verifylogoutbutton"></include>
+
+				</methods>
+			</class>
+			<class name="testscript.ManageFooterTest">
+				<methods>
+					<include name="verifyuserabletomanagefootertext"></include>
+
 
 				</methods>
 			</class>
@@ -30,19 +43,16 @@
 
 				</methods>
 			</class>
+
+
 			<class name="testscript.ManageContactTest">
 				<methods>
 					<include name="verifyusercanupdatecontactinformation"></include>
 
 				</methods>
 			</class>
-			<class name="testscript.ManageFooterTest">
-				<methods>
-					<include name="verifyuserabletomanagefootertext"></include>
 
-				</methods>
-			</class>
-			<class name="testscript.LogOutTest">
+			<class name="testscript.HomeTest">
 				<methods>
 					<include name="verifyUserIsAbleToLogout"></include>
 
@@ -51,5 +61,63 @@
 		</classes>
 	</test> <!--
 	Test -->
+	<test thread-count="5" name="Test2">
+
+
+		<classes>
+			<class name="testscript.LoginTestclass">
+				<methods>
+					<include
+						name="verifywhetheruserisabletoenterusingvalidcredentials"></include>
+					<include name="verifyuserabletoenterusinginvalidcredentials"></include>
+					<include
+						name="verifyuserabletoenterusingvalidusernameandinvalidpassword"></include>
+					<include
+						name="verifyuserabletoenterusinginvalidusernameandvalidpassword"></include>
+				</methods>
+			</class>
+			<class name="testscript.AdnimUsersTest">
+				<methods>
+					<include name="verifyUserAbleToManageAdminUserPage"></include>
+
+				</methods>
+			</class>
+			<class name="testscript.ManageNewsTestclass">
+				<methods>
+					<include name="verifuserabletopublishmessage"></include>
+					<include name="verifylogoutbutton"></include>
+
+				</methods>
+			</class>
+			<class name="testscript.ManageFooterTest">
+				<methods>
+					<include name="verifyuserabletomanagefootertext"></include>
+
+
+				</methods>
+			</class>
+			<class name="testscript.ManageCategoryTest">
+				<methods>
+					<include name="verifyuserabletomanagecategorysuccessfully"></include>
+
+				</methods>
+			</class>
+
+
+			<class name="testscript.ManageContactTest">
+				<methods>
+					<include name="verifyusercanupdatecontactinformation"></include>
+
+				</methods>
+			</class>
+
+			<class name="testscript.HomeTest">
+				<methods>
+					<include name="verifyUserIsAbleToLogout"></include>
+
+				</methods>
+			</class>
+		</classes>
+	</test>
 </suite> <!--
 Suite -->

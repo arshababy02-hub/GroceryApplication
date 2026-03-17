@@ -5,11 +5,14 @@ import java.io.IOException;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import pages.LogOutPage;
+import pages.HomePage;
 import pages.LoginPage;
 import utilities.ExcelUtility;
 
-public class LogOutTest extends Base {
+public class HomeTest extends Base {
+	public HomePage home;
+
+	// Description:Test cases for accessing different sections.
 	@Test
 	public void verifyUserIsAbleToLogout() throws IOException {
 		// Step 1: Fetch valid username from Excel test data
@@ -31,7 +34,7 @@ public class LogOutTest extends Base {
 		loginpage.clicksignin();
 
 		// Step 7: Create LogOutPage object to perform logout actions
-		LogOutPage logoutpage = new LogOutPage(driver);
+		HomePage logoutpage = new HomePage(driver);
 
 		// Step 8: Click on Admin icon and select Logout option
 		logoutpage.clickOnLogout();

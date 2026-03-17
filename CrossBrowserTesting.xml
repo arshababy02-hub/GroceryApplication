@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Cross Browser Test">
-	<test thread-count="5" name="ChromeTest">
-		<parameter name="browser" value="chrome"></parameter>
+<suite name="CrossBrowserTesting">
+	<test thread-count="5" name="Chrome Test">
+		<parameter name="browser" value="chrome" />
 
 		<classes>
-
 			<class name="testscript.LoginTestclass">
 				<methods>
 					<include
@@ -17,10 +16,23 @@
 						name="verifyuserabletoenterusinginvalidusernameandvalidpassword"></include>
 				</methods>
 			</class>
+			<class name="testscript.AdnimUsersTest">
+				<methods>
+					<include name="verifyUserAbleToManageAdminUserPage"></include>
+
+				</methods>
+			</class>
 			<class name="testscript.ManageNewsTestclass">
 				<methods>
 					<include name="verifuserabletopublishmessage"></include>
 					<include name="verifylogoutbutton"></include>
+
+				</methods>
+			</class>
+			<class name="testscript.ManageFooterTest">
+				<methods>
+					<include name="verifyuserabletomanagefootertext"></include>
+
 
 				</methods>
 			</class>
@@ -30,20 +42,16 @@
 
 				</methods>
 			</class>
+
+
 			<class name="testscript.ManageContactTest">
 				<methods>
 					<include name="verifyusercanupdatecontactinformation"></include>
 
 				</methods>
 			</class>
-			<class name="testscript.ManageFooterTest">
-				<methods>
-					<include name="verifyuserabletomanagefootertext"></include>
 
-				</methods>
-			</class>
-
-			<class name="testscript.LogOutTest">
+			<class name="testscript.HomeTest">
 				<methods>
 					<include name="verifyUserIsAbleToLogout"></include>
 
@@ -51,12 +59,11 @@
 			</class>
 		</classes>
 	</test> <!--
-		
 	Test -->
-	<test thread-count="5" name="FirefoxTest">
-		<parameter name="browser" value="firefox"></parameter>
-		<classes>
+	<test thread-count="5" name="Firefox Test">
+		<parameter name="browser" value="firefox" />
 
+		<classes>
 			<class name="testscript.LoginTestclass">
 				<methods>
 					<include
@@ -68,10 +75,23 @@
 						name="verifyuserabletoenterusinginvalidusernameandvalidpassword"></include>
 				</methods>
 			</class>
+			<class name="testscript.AdnimUsersTest">
+				<methods>
+					<include name="verifyUserAbleToManageAdminUserPage"></include>
+
+				</methods>
+			</class>
 			<class name="testscript.ManageNewsTestclass">
 				<methods>
 					<include name="verifuserabletopublishmessage"></include>
 					<include name="verifylogoutbutton"></include>
+
+				</methods>
+			</class>
+			<class name="testscript.ManageFooterTest">
+				<methods>
+					<include name="verifyuserabletomanagefootertext"></include>
+
 
 				</methods>
 			</class>
@@ -81,20 +101,16 @@
 
 				</methods>
 			</class>
+
+
 			<class name="testscript.ManageContactTest">
 				<methods>
 					<include name="verifyusercanupdatecontactinformation"></include>
 
 				</methods>
 			</class>
-			<class name="testscript.ManageFooterTest">
-				<methods>
-					<include name="verifyuserabletomanagefootertext"></include>
 
-				</methods>
-			</class>
-
-			<class name="testscript.LogOutTest">
+			<class name="testscript.HomeTest">
 				<methods>
 					<include name="verifyUserIsAbleToLogout"></include>
 
@@ -102,7 +118,5 @@
 			</class>
 		</classes>
 	</test>
-	<!--
-	Test -->
 </suite> <!--
 Suite -->

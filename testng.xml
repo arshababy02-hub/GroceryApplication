@@ -5,8 +5,7 @@
 		<parameter name="browser" value="chrome" />
 
 		<classes>
-
-			<class name="testscript.LoginTestclass">
+	<class name="testscript.LoginTestclass">
 				<methods>
 					<include
 						name="verifywhetheruserisabletoenterusingvalidcredentials"></include>
@@ -17,22 +16,16 @@
 						name="verifyuserabletoenterusinginvalidusernameandvalidpassword"></include>
 				</methods>
 			</class>
+			<class name="testscript.AdnimUsersTest">
+				<methods>
+					<include name="verifyUserAbleToManageAdminUserPage"></include>
+
+				</methods>
+			</class>
 			<class name="testscript.ManageNewsTestclass">
 				<methods>
 					<include name="verifuserabletopublishmessage"></include>
 					<include name="verifylogoutbutton"></include>
-
-				</methods>
-			</class>
-			<class name="testscript.ManageCategoryTest">
-				<methods>
-					<include name="verifyuserabletomanagecategorysuccessfully"></include>
-
-				</methods>
-			</class>
-			<class name="testscript.ManageContactTest">
-				<methods>
-					<include name="verifyusercanupdatecontactinformation"></include>
 
 				</methods>
 			</class>
@@ -43,7 +36,23 @@
 
 				</methods>
 			</class>
-			<class name="testscript.LogOutTest">
+			<class name="testscript.ManageCategoryTest">
+				<methods>
+					<include name="verifyuserabletomanagecategorysuccessfully"></include>
+
+				</methods>
+			</class>
+			
+			 
+			
+		 <class name="testscript.ManageContactTest">
+				<methods>
+					<include name="verifyusercanupdatecontactinformation"></include>
+
+				</methods>
+			</class>
+		
+	 <class name="testscript.HomeTest">
 				<methods>
 					<include name="verifyUserIsAbleToLogout"></include>
 

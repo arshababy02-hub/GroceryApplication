@@ -27,16 +27,21 @@ public class LoginPage {
 
 	}
 	// Method to enter username into username field
-	public void enterusername(String username) {
+	public  LoginPage enterusername(String username) {
+		uname.clear();
 		uname.sendKeys(username);
+		return this;
 	}
 	// Method to enter password into password field
-	public void enterpassword(String password) {
+	public LoginPage enterpassword(String password) {
+		pwd.clear();
 		pwd.sendKeys(password);
+		return this;
 	}
 	 // Method to click on Sign In button
-	public void clicksignin() {
+	public HomePage clicksignin() {
 		signin.click();
+		return new HomePage(driver);
 	}
 
     // Validation method to verify if Dashboard (Home page) is displayed
