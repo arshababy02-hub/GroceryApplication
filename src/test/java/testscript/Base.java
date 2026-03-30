@@ -21,7 +21,7 @@ import utilities.WaitUtility;
  * Base class is used to perform common setup and teardown operations like
  * browser initialization, loading configuration, and closing browser. All test
  * classes will extend this Base class.
- */
+ */ 
 public class Base {
 
 	public WebDriver driver;// WebDriver instance used across test classes
