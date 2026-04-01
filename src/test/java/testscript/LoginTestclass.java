@@ -19,7 +19,7 @@ public class LoginTestclass extends Base {
 	 * password. Test data is fetched from Excel sheet.
 	 */
 
-	@Test(priority = 1, description = "verify user is able to login using valid password and user name")
+	@Test(priority=1,groups= {"Regression"},retryAnalyzer=retry.Retry.class, description = "verify user is able to login using valid password and user name")
 	public void verifywhetheruserisabletoenterusingvalidcredentials() throws IOException {
 		// Read valid username and password from Excel
 		String username = ExcelUtility.getStringData(1, 0, "LoginPage");
